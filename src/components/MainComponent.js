@@ -31,7 +31,7 @@ class Main extends Component {
         <Staff
           staffSelected={
             this.state.staffs.filter(
-              (staff) => staff.id === parseInt(match.params.id, 10)
+              (staff) => staff.id === parseInt(match.params.id, 10) 
             )[0]
           }
           department={this.state.departments}

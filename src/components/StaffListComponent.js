@@ -19,6 +19,8 @@ const required = (value) => value && value.length > 0 ;
 const maxlength = (len) => (value) => !(value) || (value.length <= len);
 const isNumber = (value) => !(value) ||!isNaN(Number(value));
 
+
+
 const StaffList = ({ staffs, updateState }) => {
   const [Name, setName] = useState(null);
   const [SEARCH, setSEARCH] = useState(null);
@@ -27,6 +29,8 @@ const StaffList = ({ staffs, updateState }) => {
   const [startDate, setstartDate] = useState('');
 
   const [modalOpen, setModalOpen] = useState(false);
+
+  
 
   const STAFFS = staffs.map((staff) => {
     return (
@@ -78,21 +82,12 @@ const StaffList = ({ staffs, updateState }) => {
 
    const handleSubmit = (values) => {
 
-    const newStaff = {
-      id: staffs.length,
-      name: values.name,
-      doB: doB,
-      startDate: startDate,
-      department: values.department,
-      salaryScale: values.salaryScale,
-      annualLeave: values.annualLeave,
-      overTime: values.overTime,
-      image: "/assets/images/alberto.png",
-    };
-
+    
     setModalOpen(!modalOpen);
 
-    updateState(newStaff);
+  
+
+    alert('Current State is: ' + JSON.stringify(values));
    };
 
   return (
@@ -146,11 +141,11 @@ const StaffList = ({ staffs, updateState }) => {
         <Modal
           isOpen={modalOpen}
           toggle={(modalOpen) => setModalOpen(!modalOpen)}
-        >
+          >
           <ModalHeader
             isOpen={modalOpen}
             toggle={(modalOpen) => setModalOpen(!modalOpen)}
-          >
+            >
             Thêm nhân viên
           </ModalHeader>
           <ModalBody>

@@ -15,14 +15,14 @@ class Staff extends Component {
     super(props);
 
     this.state = {
-      modalOpen1: false,
-      modalOpen2: false,
+      modalOpenDel: false,
+      modalOpenEdit: false,
       startDate: '',
       doB: '',
     }
 
-    this.setModalOpen1 = this.setModalOpen1.bind(this);
-    this.setModalOpen2 = this.setModalOpen2.bind(this);
+    this.setModalOpenDel = this.setModalOpenDel.bind(this);
+    this.setModalOpenEdit = this.setModalOpenEdit.bind(this);
     this.handleClickNo = this.handleClickNo.bind(this);
     this.handleClickYes = this.handleClickYes.bind(this);
     this.handleSubmitEdit = this.handleSubmitEdit.bind(this);
@@ -38,21 +38,21 @@ class Staff extends Component {
     this.setstartDate(oldStartDate);
   }
 
-  setModalOpen1(){
+  setModalOpenDel(){
     this.setState({
-      modalOpen1: !this.state.modalOpen1
+      modalOpenDel: !this.state.modalOpenDel
     })
   }
 
-  setModalOpen2(){
+  setModalOpenEdit(){
     this.setState({
-      modalOpen2: !this.state.modalOpen2
+      modalOpenEdit: !this.state.modalOpenEdit
     })
   }
 
 
   handleClickNo(){
-    this.setModalOpen1();
+    this.setModalOpenDel();
   }
 
 
@@ -81,7 +81,7 @@ class Staff extends Component {
     const timedStartDate = this.state.startDate !== '' ? this.state.startDate.concat(newTime) : null;
 
     this.props.editStaff(this.props.staffSelected.id, values.name, timedDoB, timedStartDate, values.departmentId, values.salaryScale, values.annualLeave, values.overTime);
-    this.setModalOpen2();
+    this.setModalOpenEdit();
   }
 
   renderStaff(staff) {
@@ -93,12 +93,10 @@ class Staff extends Component {
     return (
       <FadeTransform in transformProps={{ exitTransform: 'scale(0.5) translateY(-50%)'}}>
       <div className="mb-4 row mt-4">
-        <div className="col-lg-2"></div>
-        <div className="col-12 col-lg-3">
+        <div className="col-12 col-lg-6 text-center">
           <CardImg src={staff.image} className="staff-card-img"></CardImg>
         </div>
-        <div className="col-lg-1"></div>
-        <div className="col-12 col-lg-6">
+        <div className="col-12 col-lg-6 text-center">
           <h5>Họ và tên: {staff.name}</h5>
 
           <p>Ngày sinh: {staff.doB ? dateFormat(staff.doB, "dd/mm/yyyy") : 'N/A'}</p>
@@ -107,15 +105,14 @@ class Staff extends Component {
           <p>Số ngày nghỉ còn lại: {staff.annualLeave}</p>
           <p>Số ngày đã làm thêm: {staff.overTime}</p>
           <Button
-            className="btn btn-primary mt-2"
-            onClick={this.setModalOpen1}
+            className="btn btn-primary mt-2 "
+            onClick={this.setModalOpenDel}
           >
             Xóa nhân viên
           </Button>
-
           <Button
-            className="btn btn-primary mt-2 ml-1"
-            onClick={this.setModalOpen2}
+            className="btn btn-primary mt-2"
+            onClick={this.setModalOpenEdit}
           >
             Sửa thông tin
           </Button>
@@ -156,9 +153,7 @@ class Staff extends Component {
     return (
       <div className="container">
         <div>
-          <Breadcrumb
-            style={{ backgroundColor: "#ffffff", padding: 0, margin: 0 }}
-          >
+          <Breadcrumb>
             <BreadcrumbItem>
               <Link to="/">Nhân viên</Link>
             </BreadcrumbItem>
@@ -170,19 +165,13 @@ class Staff extends Component {
 
         <div>{rendered}</div>
 
-        <div className="row">
-          <Link to="/" className="col-12 pt-3">
-            &#8592; Trở về Danh sách nhân viên
-          </Link>
-        </div>
-
         <div>
         <Modal
-          isOpen={this.state.modalOpen1}
-          toggle={this.setModalOpen1}
+          isOpen={this.state.modalOpenDel}
+          toggle={this.setModalOpenDel}
         >
-          <ModalHeader isOpen={this.state.modalOpen1}
-          toggle={this.setModalOpen1}>Xóa nhân viên {this.props.staffSelected.name}, mã nhân viên {this.props.staffSelected.id} ?</ModalHeader>
+          <ModalHeader isOpen={this.state.modalOpenDel}
+          toggle={this.setModalOpen1}>Xóa nhân viên {this.props.staffSelected.name}, Mã nhân viên {this.props.staffSelected.id} ?</ModalHeader>
           <ModalBody>
             
             <button className="btn btn-info mt-1" onClick={() => this.handleClickYes(this.props.staffSelected)}>Xóa</button> <button className="btn btn-info mt-1 ml-1" onClick={this.handleClickNo}>Không</button>
@@ -192,12 +181,12 @@ class Staff extends Component {
 
       <div>
         <Modal
-          isOpen={this.state.modalOpen2}
-          toggle={this.setModalOpen2}
+          isOpen={this.state.modalOpenEdit}
+          toggle={this.setModalOpenEdit}
         >
           <ModalHeader
-            isOpen={this.state.modalOpen12}
-            toggle={this.setModalOpen2}
+            isOpen={this.state.modalOpenEdit}
+            toggle={this.setModalOpenEdit}
           >
             Thêm nhân viên
           </ModalHeader>
@@ -351,8 +340,8 @@ class Staff extends Component {
                 </Col>
               </Row>
               <Row className="mt-2">
-                <Col md={{ size: 3, offset: 3 }}>
-                  <Button type="submit" className="btn btn-info">
+                <Col md={{ size: 12, offset: 4 }}>
+                  <Button type="submit" className="btn btn-info mw-100">
                     Sửa thông tin
                   </Button>
                 </Col>
@@ -360,8 +349,7 @@ class Staff extends Component {
             </LocalForm>
           </ModalBody>
         </Modal>
-        </div>
-      
+        </div>     
       </div>
     );
   }

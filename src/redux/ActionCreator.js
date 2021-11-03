@@ -2,7 +2,6 @@ import * as ActionType from './ActionType';
 import { baseUrl } from './baseUrl';
 
 
-// add staff
 export const addStaff = (newStaff) => ({
     type: ActionType.ADD_STAFF,
     payload: newStaff
@@ -44,10 +43,10 @@ export const postStaff = (name, doB, startDate, departmentId, salaryScale, annua
     })
     .then(response => response.json())
     .then(newStaff => dispatch(addStaff(newStaff)))
-    .catch(error => { alert("Try again") ; console.log(error.message)})
+    .catch(error =>{console.log(error.message) ;
+        alert('Your staff could not be posted\nError: '+error.message); })
 }
 
-//edit staff
 export const editStaff = (id, name, doB, startDate, departmentId, salaryScale, annualLeave, overTime) => (dispatch) => {
     const editStaff = {
         id,
@@ -84,7 +83,7 @@ export const editStaff = (id, name, doB, startDate, departmentId, salaryScale, a
     })
     .then(response => response.json())
     .then(editStaff => dispatch(staffEdited(editStaff)))
-    .catch(error => { alert("Try again") ; console.log(error.message)})
+    .catch(error => { alert("Your edit staff cant not be posted") ;console.log(error.message)})
 }
 
 export const staffEdited = (editStaff) => ({
@@ -93,7 +92,6 @@ export const staffEdited = (editStaff) => ({
     
 });
 
-// delete staff
 export const delStaff = (id) => ({
     type: ActionType.DELETE_STAFF,
     payload: id
@@ -134,7 +132,6 @@ export const staffsLoaded = (staffs) => ({
     payload: staffs
 })
 
-// Departments
 export const fetchDeps = () => (dispatch) => {
     dispatch(depsLoading(true));
 
@@ -170,7 +167,6 @@ export const depsLoaded = (deps) => ({
     payload: deps
 })
 
-// Salary
 export const fetchSalaries = () => (dispatch) => {
     dispatch(salariesLoading(true));
 
@@ -206,7 +202,6 @@ export const salariesLoaded = (staffsSalaries) => ({
     payload: staffsSalaries
 })
 
-// depStaffs
 
 export const fetchDepStaffs = (dep) => (dispatch) => {
     dispatch(depStaffsLoading(true));

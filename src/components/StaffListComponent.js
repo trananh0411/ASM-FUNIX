@@ -69,7 +69,6 @@ const StaffList = ({ staffs, postStaff, isLoading, errMes }) => {
     Name.value = "";
   };
 
-  // handle add submit
    const handleSubmit = (values) => {
 
     setModalOpen(!modalOpen);
@@ -82,7 +81,6 @@ const StaffList = ({ staffs, postStaff, isLoading, errMes }) => {
     postStaff(values.name, timedDoB, timedStartDate, values.departmentId, values.salaryScale, values.annualLeave, values.overTime)
    };
 
-  // return part
   return (
     <div className="container">
       <h1 className="pb-3 text-dark">Danh sách nhân viên</h1>

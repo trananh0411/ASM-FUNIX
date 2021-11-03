@@ -11,7 +11,7 @@ class DepStaffs extends Component {
         <Link
           to={`/staff/${staff.id}`}
           className="col col-6 col-md-4 col-lg-2 text-dark mb-2"
-          style={{ textDecoration: "none" }} key={staff.id}
+          key={staff.id}
         >
           <div>
             <Card tag="li" className="mt-2 p-1">

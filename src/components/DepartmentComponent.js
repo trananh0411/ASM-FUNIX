@@ -24,9 +24,7 @@ const DepList = ({departments, isLoading, errMes}) => {
     return (
       <div className="container">
         <div>
-          <Breadcrumb
-            style={{ backgroundColor: "#ffffff", padding: 0, margin: 0 }}
-          >
+          <Breadcrumb>
             <BreadcrumbItem>
               <Link to="/">Nhân viên</Link>
             </BreadcrumbItem>

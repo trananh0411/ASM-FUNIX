@@ -100,7 +100,7 @@ export const STAFFS =
         },
         {
             id: 6,
-            name: "Nguyễn Văn G",
+            name: "Nguyễn Văn F",
             doB: "2003-01-01T08:59:00.000Z",
             salaryScale: 1,
             startDate: "2019-04-30T08:59:00.000Z",
@@ -111,7 +111,7 @@ export const STAFFS =
         },
         {
             id: 7,
-            name: "Nguyễn Văn H",
+            name: "Nguyễn Văn F",
             doB: "2003-01-01T08:59:00.000Z",
             salaryScale: 1,
             startDate: "2019-04-30T08:59:00.000Z",
@@ -122,7 +122,7 @@ export const STAFFS =
         },
         {
             id: 8,
-            name: "Nguyễn Văn T",
+            name: "Nguyễn Văn F",
             doB: "2003-01-01T08:59:00.000Z",
             salaryScale: 1,
             startDate: "2019-04-30T08:59:00.000Z",
@@ -133,7 +133,7 @@ export const STAFFS =
         },
         {
             id: 9,
-            name: "Nguyễn Văn I",
+            name: "Nguyễn Văn F",
             doB: "2003-01-01T08:59:00.000Z",
             salaryScale: 1,
             startDate: "2019-04-30T08:59:00.000Z",
@@ -144,7 +144,7 @@ export const STAFFS =
         },
         {
             id: 10,
-            name: "Nguyễn Văn K",
+            name: "Nguyễn Văn F",
             doB: "2003-01-01T08:59:00.000Z",
             salaryScale: 1,
             startDate: "2019-04-30T08:59:00.000Z",
@@ -155,7 +155,7 @@ export const STAFFS =
         },
         {
             id: 11,
-            name: "Nguyễn Văn L",
+            name: "Nguyễn Văn F",
             doB: "2003-01-01T08:59:00.000Z",
             salaryScale: 1,
             startDate: "2019-04-30T08:59:00.000Z",
@@ -166,7 +166,7 @@ export const STAFFS =
         },
         {
             id: 12,
-            name: "Nguyễn Văn M ",
+            name: "Nguyễn Văn F",
             doB: "2003-01-01T08:59:00.000Z",
             salaryScale: 1,
             startDate: "2019-04-30T08:59:00.000Z",
@@ -177,7 +177,7 @@ export const STAFFS =
         },
         {
             id: 13,
-            name: "Nguyễn Văn N",
+            name: "Nguyễn Văn F",
             doB: "2003-01-01T08:59:00.000Z",
             salaryScale: 1,
             startDate: "2019-04-30T08:59:00.000Z",
@@ -188,7 +188,7 @@ export const STAFFS =
         },
         {
             id: 14,
-            name: "Nguyễn Văn O",
+            name: "Nguyễn Văn F",
             doB: "2003-01-01T08:59:00.000Z",
             salaryScale: 1,
             startDate: "2019-04-30T08:59:00.000Z",
@@ -199,7 +199,7 @@ export const STAFFS =
         },
         {
             id: 15,
-            name: "Nguyễn Văn S",
+            name: "Nguyễn Văn F",
             doB: "2003-01-01T08:59:00.000Z",
             salaryScale: 1,
             startDate: "2019-04-30T08:59:00.000Z",

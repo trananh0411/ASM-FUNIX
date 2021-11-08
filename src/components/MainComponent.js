@@ -20,21 +20,16 @@ class Main extends Component {
     };
   }
 
-  
-  onStaffSelected(staffId) {
-    this.setState({ staffSelected: staffId });
-  }
 
   render() {
-    const StaffWithId = ({ match }) => {
+    const StaffWithId = () => {
       return (
         <Staff
           staffSelected={
             this.state.staffs.filter(
-              (staff) => staff.id === parseInt(match.params.id, 10) 
+              (staff) => staff.id 
             )[0]
           }
-          department={this.state.departments}
         />
       );
     };
@@ -50,12 +45,10 @@ class Main extends Component {
               component={() => (
                 <StaffList
                   staffs={this.state.staffs}
-                  departments={this.state.departments}
-                  onClick={(staffId) => this.onStaffSelected(staffId)}
                 />
               )}
             />
-            <Route path="/staff/:id" component={StaffWithId} />
+            <Route path="/staff/:id" component= {StaffWithId} />
             <Route
               path="/departments"
               component={() => <DepList departments={this.state.departments} />}
@@ -67,8 +60,8 @@ class Main extends Component {
 
           </Switch>
           <Footer />
-        </div>
-      </BrowserRouter>
+        </div> 
+      </BrowserRouter> 
     );
   }
 }

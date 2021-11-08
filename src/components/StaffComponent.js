@@ -7,10 +7,10 @@ class Staff extends Component {
   renderStaff(staff) {
     return (
       <div className="mb-4 row mt-4">
-        <div className="col-12 col-lg-6">
+        <div className="col-12 col-md-4 col-lg-3">
           <CardImg src={staff.image} className="staff-card-img"></CardImg>
         </div>
-        <div className="col-12 col-lg-6">
+        <div className="col-12 col-md-8 col-lg-9">
           <h5>Họ và tên: {staff.name}</h5>
 
           <p>Ngày sinh: {dateFormat(staff.doB, "dd/mm/yyyy")}</p>
@@ -39,7 +39,7 @@ class Staff extends Component {
 
         <h1 className="pb-3 text-dark">Thông tin nhân viên</h1>
 
-        <div>{this.renderStaff(staff)}</div>
+        <div className="text-center">{this.renderStaff(staff)}</div>
 
       </div>
     );

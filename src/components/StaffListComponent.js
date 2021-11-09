@@ -31,7 +31,7 @@ const StaffList = ({staffs}) => {
         <div className="pb-2 text-dark">
           <p> &#42; Bấm vào tên nhân viên để xem thông tin.</p>
         </div>
-        <div className="row"> {STAFFS}</div>
+        <div className="row"> {STAFFS} </div>
       </div>
     );
   }

@@ -5,6 +5,7 @@ import dateFormat from "dateformat";
 
 class Staff extends Component {
   render() {
+
     const staff = this.props.staffSelected;
 
     return (
@@ -21,7 +22,7 @@ class Staff extends Component {
         <h1 className="pb-3 text-dark">Thông tin nhân viên</h1>
 
         <div className="text-center">
-            <div className="mb-4 row mt-4">
+          <div className="mb-4 row mt-4">
             <div className="col-12 col-md-4 col-lg-3">
               <CardImg src={staff.image} className="staff-card-img"></CardImg>
             </div>

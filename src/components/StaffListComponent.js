@@ -13,11 +13,10 @@ const StaffList = ({staffs}) => {
         >
           <div key={staff.id}>
             <Card
-              tag="li"
               className="mt-2 p-1"
             >
               <CardImg src={staff.image}></CardImg>
-              <CardText>{staff.name}</CardText>
+              <CardText className="text-center">{staff.name}</CardText>
             </Card>
           </div>
         </Link>

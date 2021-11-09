@@ -12,7 +12,7 @@ class SalaryList extends Component {
     const STAFFS = this.props.staffs.map((staff) => {
       return (
         <div key={staff.id} className="col col-12 col-md-6 col-lg-4 p-2">
-          <Card tag="li" className="mt-2 p-1">
+          <Card className="mt-2 p-1">
             <CardTitle>{staff.name}</CardTitle>
             <CardText className="pl-2 pb-2">Mã nhân viên: {staff.id}</CardText>
             <CardText className="pl-2 pb-2">
@@ -28,7 +28,7 @@ class SalaryList extends Component {
               Lương: {(
                 staff.salaryScale * basicSalary +
                 staff.overTime * overTimeSalary
-              ).toFixed(1)}
+              ).toFixed(0)}
             </CardText>
           </Card>
         </div>

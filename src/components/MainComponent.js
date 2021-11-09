@@ -16,18 +16,17 @@ class Main extends Component {
     this.state = {
       staffs: STAFFS,
       departments: DEPARTMENTS,
-      staffSelected: null,
     };
   }
 
 
   render() {
-    const StaffWithId = () => {
+    const StaffWithId = ({ match }) => {
       return (
         <Staff
           staffSelected={
             this.state.staffs.filter(
-              (staff) => staff.id 
+              (staff) => staff.id === parseInt(match.params.id) 
             )[0]
           }
         />
@@ -57,7 +56,6 @@ class Main extends Component {
               path="/salarylist"
               component={() => <SalaryList staffs={this.state.staffs} />}
             />
-
           </Switch>
           <Footer />
         </div> 

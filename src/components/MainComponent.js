@@ -45,7 +45,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchStaffs: () => {dispatch(fetchStaffs())},
   fetchDeps: () => {dispatch(fetchDeps())},
   fetchSalaries: () => {dispatch(fetchSalaries())},
-  delStaff: (staffId) => {dispatch(delStaff(staffId))},
+  delStaff: (id) => {dispatch(delStaff(id))},
   editStaff: (
     id,
     name,

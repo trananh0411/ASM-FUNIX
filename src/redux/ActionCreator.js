@@ -47,6 +47,7 @@ export const postStaff = (name, doB, startDate, departmentId, salaryScale, annua
         alert('Your staff could not be posted\nError: '+error.message); })
 }
 
+
 export const editStaff = (id, name, doB, startDate, departmentId, salaryScale, annualLeave, overTime) => (dispatch) => {
     const editStaff = {
         id,
@@ -91,6 +92,7 @@ export const staffEdited = (editStaff) => ({
     payload: editStaff
     
 });
+
 
 export const delStaff = (id) => ({
     type: ActionType.DELETE_STAFF,
@@ -220,7 +222,7 @@ export const fetchDepStaffs = (dep) => (dispatch) => {
         throw errMess;
     })
     .then(response => response.json())
-    .then(data => dispatch(depStaffsLoaded(data)))
+    .then(depStaffs => dispatch(depStaffsLoaded(depStaffs)))
     .catch(error => dispatch(depStaffsFailed(error.message)))
 };
 

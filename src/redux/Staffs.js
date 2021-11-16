@@ -15,7 +15,6 @@ const Staffs = (state = { isLoading: true, errMes: null, staffs: []}, action) =>
     case ActionType.DELETE_STAFF:
         var id = action.payload;
         var convertedId = id.toString();
-
         fetch(baseUrl + 'staffs/' + id, {
             method: 'DELETE',
             body: convertedId,
@@ -36,9 +35,8 @@ const Staffs = (state = { isLoading: true, errMes: null, staffs: []}, action) =>
             var errMess = new Error(error.message);
             throw errMess;
         })
-        .then(response => {response.json(); console.log(response)})
+        .then(response => {response.json()})
         .catch(error => { alert("Try again") ; console.log(error.message)})
-
         const newList = state.staffs.filter((staff) => (staff.id !== id));
         return {...state, isLoading: false, errMes: null, staffs: newList}
     case ActionType.EDIT_STAFF:

@@ -119,7 +119,9 @@ class Main extends Component {
           
             <Route path="/staff/:id" component={StaffWithId} />
             <Route path="/department/:id" component={(match) => (<DepWithId match={match}
-            fetchDepStaffs={this.props.fetchDepStaffs} depStaffs={this.props.depStaffs} departments={this.props.departments.departments}/>)} />
+              fetchDepStaffs={this.props.fetchDepStaffs} 
+              depStaffs={this.props.depStaffs} 
+              departments={this.props.departments.departments}/>)} />
             <Route
               path="/departments"
               component={() => <DepList 

@@ -2,6 +2,41 @@ import * as ActionType from './ActionType';
 import { baseUrl } from './baseUrl';
 
 
+export const fetchDeps = () => (dispatch) => {
+    dispatch(depsLoading(true));
+
+    return fetch(baseUrl + 'departments')
+        .then(response => {
+            if (response.ok) {
+                return response;
+            } else {
+                var error = new Error(`Error${response.status}: ${response.statusText}`);
+                error.response = response;
+                throw error;
+            }
+        }, error => {
+            var errMess = new Error(error.message);
+            throw errMess;
+        })
+        .then(response => response.json())
+        .then(departments => dispatch(depsLoaded(departments)))
+        .catch(error => dispatch(depsFailed(error.message)))
+};
+
+export const depsLoading = () => ({
+    type: ActionType.DEPARTMENTS_LOADING,
+});
+
+export const depsFailed = (errMes) => ({
+    type: ActionType.DEPARTMENTS_FAILED,
+    payload: errMes
+});
+
+export const depsLoaded = (deps) => ({
+    type: ActionType.DEPARTMENTS_LOADED,
+    payload: deps
+})
+
 export const addStaff = (newStaff) => ({
     type: ActionType.ADD_STAFF,
     payload: newStaff
@@ -134,40 +169,6 @@ export const staffsLoaded = (staffs) => ({
     payload: staffs
 })
 
-export const fetchDeps = () => (dispatch) => {
-    dispatch(depsLoading(true));
-
-    return fetch(baseUrl + 'departments')
-        .then(response => {
-            if (response.ok) {
-                return response;
-            } else {
-                var error = new Error(`Error${response.status}: ${response.statusText}`);
-                error.response = response;
-                throw error;
-            }
-        }, error => {
-            var errMess = new Error(error.message);
-            throw errMess;
-        })
-        .then(response => response.json())
-        .then(departments => dispatch(depsLoaded(departments)))
-        .catch(error => dispatch(depsFailed(error.message)))
-};
-
-export const depsLoading = () => ({
-    type: ActionType.DEPARTMENTS_LOADING,
-});
-
-export const depsFailed = (errMes) => ({
-    type: ActionType.DEPARTMENTS_FAILED,
-    payload: errMes
-});
-
-export const depsLoaded = (deps) => ({
-    type: ActionType.DEPARTMENTS_LOADED,
-    payload: deps
-})
 
 export const fetchSalaries = () => (dispatch) => {
     dispatch(salariesLoading(true));

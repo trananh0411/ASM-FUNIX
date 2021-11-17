@@ -57,7 +57,7 @@ class Staff extends Component {
 
 
   handleClickYes(staff){
-    this.props.delStaff(staff.id);
+    this.props.staffDel(staff.id);
     this.props.history.push("/")
   }
 
@@ -82,6 +82,7 @@ class Staff extends Component {
 
     this.props.editStaff(this.props.staffSelected.id, values.name, timedDoB, timedStartDate, values.departmentId, values.salaryScale, values.annualLeave, values.overTime);
     this.setModalOpenEdit();
+    this.props.history.push("/")
   }
 
   renderStaff(staff) {

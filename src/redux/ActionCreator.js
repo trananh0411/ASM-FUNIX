@@ -128,6 +128,33 @@ export const staffEdited = (editStaff) => ({
     
 });
 
+export const staffDel = (id) => (dispatch) => {
+    var convertedId = id.toString();
+    fetch(baseUrl + 'staffs/' + id, {
+        method: 'DELETE',
+        body: convertedId,
+        headers: {
+            'Content-Type': 'charset=UTF-8',
+        },
+        credentials: 'same-origin'
+    })
+    .then(response => {
+        if (response.ok) {
+            return response;
+        } else {
+            var error = new Error(`Error${response.status}: ${response.statusText}`);
+            error.response = response;
+            throw error;
+        }
+    }, error => {
+        var errMess = new Error(error.message);
+        throw errMess;
+    })
+    .then(response => response.json())
+    .then(id => dispatch(delStaff(id)))
+    .catch(error => { alert("Try again") ; console.log(error.message)})
+}
+
 
 export const delStaff = (id) => ({
     type: ActionType.DELETE_STAFF,

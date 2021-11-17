@@ -10,7 +10,7 @@ import DepList from "./DepartmentComponent";
 import Footer from "./FooterComponent";
 import SalaryList from "./SalaryListComponent";
 import DepWithId from "./DepWithIdComponent";
-import { postStaff, fetchStaffs, fetchDeps, fetchSalaries, delStaff, editStaff } from "../redux/ActionCreator";
+import { postStaff, fetchStaffs, fetchDeps, fetchSalaries, staffDel, editStaff } from "../redux/ActionCreator";
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const mapStateToProps = state => {
@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchDeps: () => {dispatch(fetchDeps())},
   fetchStaffs: () => {dispatch(fetchStaffs())},
   fetchSalaries: () => {dispatch(fetchSalaries())},
-  delStaff: (id) => {dispatch(delStaff(id))},
+  staffDel: (id) => {dispatch(staffDel(id))},
   postStaff: (
     name,
     doB,
@@ -86,7 +86,7 @@ class Main extends Component {
       )[0];
       return (
         <Staff
-          delStaff={this.props.delStaff}
+          staffDel={this.props.staffDel}
           editStaff={this.props.editStaff}
           departments={this.props.departments.departments}
           staffSelected={staffSelected}

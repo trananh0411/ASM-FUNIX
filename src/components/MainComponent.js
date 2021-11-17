@@ -22,6 +22,10 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
+  fetchDeps: () => {dispatch(fetchDeps())},
+  fetchStaffs: () => {dispatch(fetchStaffs())},
+  fetchSalaries: () => {dispatch(fetchSalaries())},
+  delStaff: (id) => {dispatch(delStaff(id))},
   postStaff: (
     name,
     doB,
@@ -42,10 +46,6 @@ const mapDispatchToProps = (dispatch) => ({
         overTime
       )
     ),
-  fetchStaffs: () => {dispatch(fetchStaffs())},
-  fetchDeps: () => {dispatch(fetchDeps())},
-  fetchSalaries: () => {dispatch(fetchSalaries())},
-  delStaff: (id) => {dispatch(delStaff(id))},
   editStaff: (
     id,
     name,

@@ -82,7 +82,6 @@ class Staff extends Component {
 
     this.props.editStaff(this.props.staffSelected.id, values.name, timedDoB, timedStartDate, values.departmentId, values.salaryScale, values.annualLeave, values.overTime);
     this.setModalOpenEdit();
-    this.props.history.push("/")
   }
 
   renderStaff(staff) {
@@ -93,32 +92,32 @@ class Staff extends Component {
 
     return (
       <FadeTransform in transformProps={{ exitTransform: 'scale(0.5) translateY(-50%)'}}>
-      <div className="mb-4 row mt-4">
-        <div className="col-12 col-lg-6 text-center">
-          <CardImg src={staff.image} className="staff-card-img"></CardImg>
-        </div>
-        <div className="col-12 col-lg-6 text-center">
-          <h5>Họ và tên: {staff.name}</h5>
+        <div className="mb-4 row mt-4">
+          <div className="col-12 col-lg-6 text-center">
+            <CardImg src={staff.image} className="staff-card-img"></CardImg>
+          </div>
+          <div className="col-12 col-lg-6 text-center">
+            <h5>Họ và tên: {staff.name}</h5>
 
-          <p>Ngày sinh: {staff.doB ? dateFormat(staff.doB, "dd/mm/yyyy") : 'N/A'}</p>
-          <p>Ngày vào công ty: {staff.startDate ? dateFormat(staff.startDate, "dd/mm/yyyy") : 'N/A'}</p>
-          <p>Phòng ban: { depName }</p>
-          <p>Số ngày nghỉ còn lại: {staff.annualLeave}</p>
-          <p>Số ngày đã làm thêm: {staff.overTime}</p>
-          <Button
-            className="btn btn-primary mt-2 "
-            onClick={this.setModalOpenDel}
-          >
-            Xóa nhân viên
-          </Button>
-          <Button
-            className="btn btn-primary mt-2"
-            onClick={this.setModalOpenEdit}
-          >
-            Sửa thông tin
-          </Button>
+            <p>Ngày sinh: {staff.doB ? dateFormat(staff.doB, "dd/mm/yyyy") : 'N/A'}</p>
+            <p>Ngày vào công ty: {staff.startDate ? dateFormat(staff.startDate, "dd/mm/yyyy") : 'N/A'}</p>
+            <p>Phòng ban: { depName }</p>
+            <p>Số ngày nghỉ còn lại: {staff.annualLeave}</p>
+            <p>Số ngày đã làm thêm: {staff.overTime}</p>
+            <Button
+              className="btn btn-primary mt-2 "
+              onClick={this.setModalOpenDel}
+            >
+              Xóa nhân viên
+            </Button>
+            <Button
+              className="btn btn-primary mt-2"
+              onClick={this.setModalOpenEdit}
+            >
+              Sửa thông tin
+            </Button>
+          </div>
         </div>
-      </div>
       </FadeTransform>
     );
   }

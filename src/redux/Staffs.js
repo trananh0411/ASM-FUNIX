@@ -13,8 +13,7 @@ const Staffs = (state = { isLoading: true, errMes: null, staffs: []}, action) =>
         return {...state, isLoading: false, errMes: null, staffs: newStaff};
     case ActionType.DELETE_STAFF:
         var id = action.payload
-        const newList = state.staffs.filter((staff) => (staff.id !== id));
-        return {...state, isLoading: false, errMes: null, staffs: newList}
+        return {...state, isLoading: false, errMes: null, staffs: id}
     case ActionType.EDIT_STAFF:
         var editStaff = action.payload;
         return {...state, isLoading: false, errMes: null, staffs: editStaff}

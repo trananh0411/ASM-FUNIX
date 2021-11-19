@@ -23,6 +23,11 @@ export const fetchDeps = () => (dispatch) => {
         .catch(error => dispatch(depsFailed(error.message)))
 };
 
+export const depsLoaded = (deps) => ({
+    type: ActionType.DEPARTMENTS_LOADED,
+    payload: deps
+});
+
 export const depsLoading = () => ({
     type: ActionType.DEPARTMENTS_LOADING,
 });
@@ -32,10 +37,6 @@ export const depsFailed = (errMes) => ({
     payload: errMes
 });
 
-export const depsLoaded = (deps) => ({
-    type: ActionType.DEPARTMENTS_LOADED,
-    payload: deps
-})
 
 export const addStaff = (newStaff) => ({
     type: ActionType.ADD_STAFF,
